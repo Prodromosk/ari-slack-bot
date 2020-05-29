@@ -1,16 +1,17 @@
 {% extends 'layout.html' %}
 {% block content %}
 {% for reply in replies %}
-{% for elem in reply %}
-{% if elem['thread_ts'] == elem['ts'] %}
 <div class="card text-white bg-primary">
+{% if reply['thread_ts'] == reply['ts'] %}
+{% for elem in reply %}
+
   <div class="card-header">{{ elem['thread_ts'] |ctime}}</div>
-  {% endif %}
   <div class="card-body">
     <p class="card-text">{{ elem['text'] }}</p>
   </div>
 </div>
 {% endfor %}
+{% endif %}
 <hr>
 {% endfor %}
 {% endblock %}
