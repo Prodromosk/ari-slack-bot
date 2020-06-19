@@ -19,7 +19,7 @@ def nix_timestamp_conversion(s):
 @app.route("/", methods=['GET', 'POST'])
 def home():
 
-    response = client.conversations_history(channel=channel_to_listen, limit=500)
+    response = client.conversations_history(channel=channel_to_listen, limit=10)
     messages = response['messages']
 
     replies = []

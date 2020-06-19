@@ -1,11 +1,21 @@
 {% extends 'layout.html' %}
 {% block content %}
+
+<form>
+  <div class="form-group mx-sm-3 mb-2">
+    <label for="datePicker">Search for date: </label>
+    <input class="form-control" id="datePicker" placeholder="Search for date" type="date" id="dateInput" onkeyup="someSearchFunHere()" placeholder="Search date" title="date">
+  </div>
+  <button type="submit" class="btn btn-primary">Search</button>
+</form>
+<hr>
+
 {% for reply in replies %}
-<div class="card text-white bg-primary">
+<div class="card text-white bg-primary" id="myUL">
 {% if reply['thread_ts'] == reply['ts'] %}
 {% for elem in reply %}
 
-  <div class="card-header">{{ elem['thread_ts'] |ctime}}</div>
+  <div class="card-header" name="date">{{ elem['thread_ts'] |ctime}}</div>
   <div class="card-body">
     <p class="card-text">{{ elem['text'] }}</p>
   </div>
